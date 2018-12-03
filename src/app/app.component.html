@@ -1,20 +1,135 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminLTE 3 | Dashboard</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <app-navbar></app-navbar>
+    <!-- /.navbar -->
 
+    <!-- Main Sidebar Container -->
+    <app-main-sidebar></app-main-sidebar>
+
+    <!-- /.content-wrapper -->
+    <div class="main-footer">
+      <!-- Content Header (Page header) -->
+      <app-page-header></app-page-header>
+      <!-- /.content-header -->
+      
+      <!-- Main content -->
+      <section class="content">
+        <div class="container-fluid">
+          <!-- Small boxes (Stat box) -->
+          <div class="row">
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-info">
+                <div class="inner">
+                  <h3>150</h3>
+      
+                  <p>New Orders</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-success">
+                <div class="inner">
+                  <h3>53<sup style="font-size: 20px">%</sup></h3>
+      
+                  <p>Bounce Rate</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-warning">
+                <div class="inner">
+                  <h3>44</h3>
+      
+                  <p>User Registrations</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+            <div class="col-lg-3 col-6">
+              <!-- small box -->
+              <div class="small-box bg-danger">
+                <div class="inner">
+                  <h3>65</h3>
+      
+                  <p>Unique Visitors</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+              </div>
+            </div>
+            <!-- ./col -->
+          </div>
+          <!-- /.row -->
+      
+          <!-- Main row -->
+          <div class="row">
+            <!-- Left col -->
+            <section class="col-lg-7 connectedSortable">
+              <!-- Custom tabs (Charts with tabs)-->
+              <h2>Section 1</h2>
+            </section>
+            <!-- /.Left col -->
+      
+            <!-- right col (We are only adding the ID to make the widgets sortable)-->
+            <section class="col-lg-5 connectedSortable">
+              <h2>Section 2</h2>
+            </section>
+            <!-- right col -->
+          </div>
+          <!-- /.row (main row) -->
+        </div><!-- /.container-fluid -->
+      </section>
+      <!-- /.content -->
+
+      <div class="" style="margin-top:300px; border-top: solid gray 2px;">
+        <strong>Copyright &copy; 2014-2018 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+          <b>Version</b> 3.0.0-alpha
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ./wrapper -->
+
+  <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+  <script>
+    $(document).ready(function () {
+      $.widget.bridge('uibutton', $.ui.button)
+    });
+  </script>
+</body>
+</html>
