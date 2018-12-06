@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { RouterModule, Routes } from '@angular/router';
 import { GestionEtablissementComponent } from '../gestion-etablissement/gestion-etablissement.component';
 import { GestionEntrepriseComponent } from '../gestion-entreprise/gestion-entreprise.component';
 import { GestionCompteComponent } from '../gestion-compte/gestion-compte.component';
-import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
