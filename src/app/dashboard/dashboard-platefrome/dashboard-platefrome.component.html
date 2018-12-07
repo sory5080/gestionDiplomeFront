@@ -6,7 +6,7 @@
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3>150</h3>
+            <h3> {{ nbreEtab }} </h3>
             <p>Etablissements</p>
           </div>
           <div class="icon">
@@ -20,7 +20,7 @@
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
-            <h3>553<sup style="font-size: 20px">%</sup></h3>
+            <h3> {{ nbreEtrp }} </h3>
             <p>Entreprises</p>
           </div>
           <div class="icon">
@@ -34,7 +34,7 @@
         <!-- small box -->
         <div class="small-box bg-warning">
           <div class="inner embed-responsive">
-            <h3>100000</h3>
+            <h3>{{ nbreDip }}</h3>
             <p>Diplômes sécurisés</p>
           </div>
           <div class="icon">
@@ -68,10 +68,11 @@
         <!-- Liste des etablieements-->
         <div class="card col-xm-12">
           <div class="card-header">
-            <strong>Liste des établissements</strong>
+            <h4>Liste des établissements</h4>
           </div>
           <div class="card-body table-responsive">
-            <table class="table table-striped table-hover table-bordered">
+            <table class="table table-striped table-hover table-bordered"
+              *ngIf="listEtablissements!=null; else elseBlockEtab">
               <thead class="bg-info">
                 <tr>
                   <th scope="col">ID</th>
@@ -80,27 +81,39 @@
                   <th scope="col">Spécialité</th>
                   <th scope="col">Email</th>
                   <th scope="col">Adresse</th>
+                  <th scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let etab of listEtablissements">
+                <tr *ngFor="let etab of listEtablissements._embedded.etablissements">
                   <th scope="row"> {{ etab.id }} </th>
-                  <td>{{ etab.sigle }}</td>
+                  <td>{{ etab.sigleEtab }}</td>
                   <td>{{ etab.nom }}</td>
                   <td>{{ etab.specialite }}</td>
                   <td>{{ etab.email }}</td>
                   <td>{{ etab.adresse }}</td>
+                  <td style="width: 88px;" class="text-center">
+                    <button class="btn btn-primary btn-sm"> <i class="nav-icon fa fa-edit"></i> </button>
+                    <button class="btn btn-danger btn-sm"> <i class="nav-icon fa fa-trash"></i> </button>
+                  </td>
                 </tr>
               </tbody>
+              
             </table>
+            <ng-template #elseBlockEtab>
+              <p class="card-title text-center text-info">
+                La liste des établissements est vide !
+              </p>
+            </ng-template>
           </div>
         </div>
         <div class="card col-xm-12">
           <div class="card-header">
-            <strong>Liste des Entreprises</strong>
+            <h4>Liste des Entreprises</h4>
           </div>
           <div class="card-body table-responsive">
-            <table class="table table-striped table-hover table-bordered">
+            <table class="table table-striped table-hover table-bordered"
+              *ngIf="listEntreprises!=null; else elseBlockEtrp">
               <thead class="bg-info">                
                 <tr>
                   <th scope="col">ID</th>
@@ -108,18 +121,28 @@
                   <th scope="col">Domaine</th>
                   <th scope="col">Email</th>
                   <th scope="col">Adresse</th>
+                  <th scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let etrp of listEntreprises">
+                <tr *ngFor="let etrp of listEntreprises._embedded.entreprises">
                   <th scope="row"> {{ etrp.id }} </th>
                   <td>{{ etrp.nom }}</td>
                   <td>{{ etrp.domaine }}</td>
                   <td>{{ etrp.email }}</td>
                   <td>{{ etrp.adresse }}</td>
+                  <td style="width: 88px;" class="text-center">
+                    <button class="btn btn-primary btn-sm"> <i class="nav-icon fa fa-edit"></i> </button>
+                    <button class="btn btn-danger btn-sm"> <i class="nav-icon fa fa-trash"></i> </button>
+                  </td>
                 </tr>
-              </tbody>
+              </tbody>              
             </table>
+            <ng-template #elseBlockEtrp>
+              <p class="card-title text-center text-info">
+                La liste des entreprises est vide !
+              </p>
+            </ng-template>
           </div>
         </div>
       </section>

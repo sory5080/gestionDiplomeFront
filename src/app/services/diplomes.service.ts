@@ -1,20 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Etablissement } from '../classes/etablissement';
 import { Http } from '@angular/http';
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EtablissementService {
+export class DiplomesService {
 
   constructor(private httpReq: Http) { }
 
-  // Methode permettant de récupérer la liste des établisssments
+  // Methode permettant de récupérer la liste des diplômes sécurisés
   // dépuis le Back-end.
-  getAllEtablissements(page: number, size: number) {
+  getAllDiplomes(page: number, size: number) {
     return this.httpReq
-      .get("http://localhost:82/etablissements?page="
+      .get("http://localhost:82/diplomeSecures?page="
         + page + "&size=" + size)
       .pipe(
         map(

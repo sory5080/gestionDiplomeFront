@@ -1,7 +1,7 @@
 export class Etablissement {
     id:number=null;
     nom: string = "";
-    sigle: string = "";
+    sigleEtab: string = "";
     specialite: string = "";
     email: string = "";
     adresse: string = "";
