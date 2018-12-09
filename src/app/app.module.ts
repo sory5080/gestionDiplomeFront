@@ -30,7 +30,7 @@ import { HttpModule } from '@angular/http';
     DashboardPlatefromeComponent,
     DashboardEtablissementComponent,
     DashboardEntrepriseComponent,
-    routingComponents
+    routingComponents    
   ],
   imports: [
     BrowserModule, 

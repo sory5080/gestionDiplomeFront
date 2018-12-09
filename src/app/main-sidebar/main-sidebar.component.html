@@ -22,30 +22,59 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
         <!-- Add icons to the links using the .nav-icon class
                   with font-awesome or any other icon font library -->
-        <li class="nav-item has-treeview menu-open">
-          <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
-            <i class="nav-icon fa fa-dashboard"></i>
-            <p>Tableau de bord</p>
-          </a>
-        </li>
-        <li class="nav-item has-treeview">
-          <a routerLink="/gestionEtablissement" routerLinkActive="active" class="nav-link">
-            <i class="nav-icon fa fa-dashboard"></i>
-            <p>Gestion Etablissements</p>
-          </a>
-        </li>
-        <li class="nav-item has-treeview">
-          <a routerLink="/gestionEntreprise" routerLinkActive="active" class="nav-link">
-            <i class="nav-icon fa fa-dashboard"></i>
-            <p>Gestion Entreprises</p>
-          </a>
-        </li>
-        <li class="nav-item has-treeview">
-          <a routerLink="/gestionCompte" routerLinkActive="active" class="nav-link">
-            <i class="nav-icon fa fa-dashboard"></i>
-            <p>Gestion des comptes</p>
-          </a>
-        </li>
+        <div class="nav-item" *ngIf="role=='ADMIN'">
+          <li class="nav-item has-treeview">
+            <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>Tableau de bord</p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a routerLink="/gestionEtablissement" routerLinkActive="active" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>Gestion Etablissements</p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a routerLink="/gestionEntreprise" routerLinkActive="active" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>Gestion Entreprises</p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a routerLink="/gestionCompte" routerLinkActive="active" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>Gestion des comptes</p>
+            </a>
+          </li>
+        </div>
+        <div class="nav-item" *ngIf="role=='ETAB'">
+          <li class="nav-item has-treeview">
+            <a routerLink="/dashboard" routerLinkActive="active" class="nav-link">
+              <i class="nav-icon fa fa-dashboard"></i>
+              <p>Tableau de bord</p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a routerLink="/secureListeDiplomes" routerLinkActive="active" class="nav-link">
+              <i class="nav-icon fa fa-lock"></i>
+              <p>Sécuriser des diplômes</p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a routerLink="/secureUnDiplome" routerLinkActive="active" class="nav-link">
+              <i class="nav-icon fa fa-lock"></i>
+              <p>Sécuriser un diplôme</p>
+            </a>
+          </li>
+          <li class="nav-item has-treeview">
+            <a routerLink="/listeDiplomes" routerLinkActive="active" class="nav-link">
+              <i class="nav-icon fa fa-list"></i>
+              <p>Liste des diplômes</p>
+            </a>
+          </li>
+        </div>
+        
       </ul>
     </nav>
     <!-- /.sidebar-menu -->

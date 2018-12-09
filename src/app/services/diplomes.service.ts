@@ -15,10 +15,19 @@ export class DiplomesService {
     return this.httpReq
       .get("http://localhost:82/diplomeSecures?page="
         + page + "&size=" + size)
-      .pipe(
+      .pipe
+      (
         map(
           rep => rep.json()
         )
       );
+  }
+  
+  // Methode chargé de récupérer le niveau d'un diplomes
+  getNiveau(url: string) {
+    return this.httpReq.get(url)
+    .pipe(
+      map(rep => rep.json())
+    );
   }
 }

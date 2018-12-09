@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EtablissementService } from 'src/app/services/etablissement.service';
-import { Etablissement } from 'src/app/classes/etablissement';
 import { EntrepriseService } from 'src/app/services/entreprise.service';
-import { Entreprise } from 'src/app/classes/entreprise';
 import { DiplomesService } from 'src/app/services/diplomes.service';
 
 @Component({

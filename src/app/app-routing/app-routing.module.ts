@@ -5,13 +5,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { GestionEtablissementComponent } from '../gestion-etablissement/gestion-etablissement.component';
 import { GestionEntrepriseComponent } from '../gestion-entreprise/gestion-entreprise.component';
 import { GestionCompteComponent } from '../gestion-compte/gestion-compte.component';
+import { GestionDiplomesComponent } from '../gestion-diplomes/gestion-diplomes.component';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'gestionEtablissement', component: GestionEtablissementComponent },
   { path: 'gestionEntreprise', component: GestionEntrepriseComponent },
   { path: 'gestionCompte', component: GestionCompteComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
+  { path: 'secureListeDiplomes', component: GestionDiplomesComponent },
+  { path: 'secureUnDiplome', component: GestionDiplomesComponent },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: "**", component: PageNotFoundComponent },
 ]
 
 @NgModule({
@@ -29,5 +34,7 @@ export const routingComponents = [
   DashboardComponent,
   GestionEtablissementComponent,
   GestionEntrepriseComponent,
-  GestionCompteComponent
+  GestionCompteComponent,
+  GestionDiplomesComponent,
+  PageNotFoundComponent
 ]
