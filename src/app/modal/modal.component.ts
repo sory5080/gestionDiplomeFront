@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { GestionDiplomesComponent } from '../gestion-diplomes/gestion-diplomes.component';
 
 @Component({
@@ -6,15 +7,26 @@ import { GestionDiplomesComponent } from '../gestion-diplomes/gestion-diplomes.c
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.css']
 })
-export class ModalComponent implements OnInit {
-  
-  constructor(private gestionDiplome: GestionDiplomesComponent) { }
+export class ModalComponent {
+  closeResult: string;
 
-  ngOnInit() {
+  constructor(private modalService: NgbModal) { }
+
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
   }
 
-  secureListeDiplomes() {
-    this.gestionDiplome.secureListeDiplomes();
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
-
 }
