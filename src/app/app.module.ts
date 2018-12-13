@@ -15,7 +15,8 @@ import { DashboardEtablissementComponent } from './dashboard/dashboard-etablisse
 import { DashboardEntrepriseComponent } from './dashboard/dashboard-entreprise/dashboard-entreprise.component';
 import { AppRoutingModule, routingComponents } from './app-routing/app-routing.module';
 import { EtablissementService } from './services/etablissement.service';
-import { EntrepriseService } from './services/entreprise.service';
+import { EntrepriseService } from './services/entreprise.service'; 
+import { ModalComponent } from './modal/modal.component';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -30,7 +31,8 @@ import { HttpModule } from '@angular/http';
     DashboardPlatefromeComponent,
     DashboardEtablissementComponent,
     DashboardEntrepriseComponent,
-    routingComponents    
+    routingComponents,
+    ModalComponent
   ],
   imports: [
     BrowserModule, 

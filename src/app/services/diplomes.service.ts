@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { map } from 'rxjs/operators';
+import { InfosListDiplomes } from '../classes/infos-list-diplomes';
+import { DiplomeAuth } from '../classes/diplome-auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DiplomesService {
+
+  url = "";
 
   constructor(private httpReq: Http) { }
 
@@ -14,7 +18,7 @@ export class DiplomesService {
   getAllDiplomes(page: number, size: number) {
     return this.httpReq
       .get("http://localhost:82/diplomeSecures?page="
-        + page + "&size=" + size)
+        + page + "&size=" + size + "&sort=idDiplome,desc")
       .pipe
       (
         map(
@@ -29,5 +33,21 @@ export class DiplomesService {
     .pipe(
       map(rep => rep.json())
     );
+  }
+
+  secureDiplomes(infos: InfosListDiplomes) {
+    let url = "http://localhost:82/secureListeDiplomes";
+    return this.httpReq.post(url, infos)
+    .pipe(
+      map(rep => rep.json())
+    );
+  }
+
+  authentifierDiplome(dipAuth: DiplomeAuth) {
+    let url = "http://localhost:82/authentifierDiplome";
+    return this.httpReq.post(url, dipAuth)
+      .pipe(
+        map(rep => rep.json())
+      );
   }
 }

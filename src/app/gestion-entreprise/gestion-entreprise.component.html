@@ -1,6 +1,6 @@
 <div class="card-group espace30">
   <div class="card col-sm-4">
-    <div class="card-header">
+    <div class="card-header bg-info">
       <h4>Formulaire d'ajout</h4>
     </div>
     <div class="card-body">
@@ -32,13 +32,13 @@
     </div>
   </div>
   <div class="card col-sm-8">
-    <div class="card-header">
+    <div class="card-header bg-info">
       <h4>Liste des entreprises</h4>
     </div>
     <div class="card-body table-responsive">
       <table class="table table-striped table-hover table-bordered"
         *ngIf="listEntreprises!=null; else elseBlockEtrp">
-        <thead class="bg-primary text-center">
+        <thead class="bg-info text-center">
           <tr>
             <th scope="col">Nom</th>
             <th scope="col">Domaine</th>

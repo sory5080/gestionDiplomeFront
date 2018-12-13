@@ -7,14 +7,17 @@ import { GestionEntrepriseComponent } from '../gestion-entreprise/gestion-entrep
 import { GestionCompteComponent } from '../gestion-compte/gestion-compte.component';
 import { GestionDiplomesComponent } from '../gestion-diplomes/gestion-diplomes.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+import { AuthDiplomeComponent } from '../auth-diplome/auth-diplome.component';
+import { ListeDiplomesComponent } from '../liste-diplomes/liste-diplomes.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'gestionEtablissement', component: GestionEtablissementComponent },
   { path: 'gestionEntreprise', component: GestionEntrepriseComponent },
   { path: 'gestionCompte', component: GestionCompteComponent },
-  { path: 'secureListeDiplomes', component: GestionDiplomesComponent },
-  { path: 'secureUnDiplome', component: GestionDiplomesComponent },
+  { path: 'secureDiplomes', component: GestionDiplomesComponent },
+  { path: 'authDiplome', component: AuthDiplomeComponent },
+  { path: 'listeDiplomes', component: ListeDiplomesComponent },
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: "**", component: PageNotFoundComponent },
 ]
@@ -36,5 +39,7 @@ export const routingComponents = [
   GestionEntrepriseComponent,
   GestionCompteComponent,
   GestionDiplomesComponent,
-  PageNotFoundComponent
+  PageNotFoundComponent,
+  ListeDiplomesComponent,
+  AuthDiplomeComponent
 ]

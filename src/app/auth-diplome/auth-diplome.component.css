@@ -1,0 +1,18 @@
+#labelAuth {
+    margin-right: 10px;
+    padding: 10px;
+    font-size: 30px;
+    text-decoration: underline;
+}
+#resAuth {
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 30px;
+}
+.bd1 {
+    text-decoration: underline;
+    width: 110px;
+}
+.bd2 {
+    font-weight: bold;
+}

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DiplomesService } from 'src/app/services/diplomes.service';
 import { DiplomeSecure } from 'src/app/classes/diplome-secure';
-import { deepStrictEqual } from 'assert';
 
 @Component({
   selector: 'app-dashboard-etablissement',

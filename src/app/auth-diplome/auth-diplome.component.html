@@ -1,0 +1,94 @@
+<div class="card-deck espace30">
+  <div class="card">
+    <div class="card-header bg-info">
+      <h5>Formulaire d'authentification de diplôme</h5>
+    </div>
+    <div class="card-body">
+      <form #f="ngForm" (ngSubmit)="authentifierDiplome()" novalidate>
+        <div class="form-group">
+          <label for="matricule">Matricule: </label>
+          <input type="text" class="form-control" id="matricule" required [class.is-invalid]="matricule.invalid && matricule.touched"
+            name="matricule" #matricule="ngModel" [(ngModel)]="dipAuth.matricule" placeholder="Matricule de l'étudiant">
+          <div *ngIf="matricule.errors && (matricule.invalid || matricule.touched)">
+            <small class="text-danger" *ngIf="matricule.errors.required && matricule.touched">
+              Le matricule est obligatoire.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="nom">Nom: </label>
+          <input type="text" class="form-control" id="nom" required [class.is-invalid]="nom.invalid && nom.touched" name="nom"
+            #nom="ngModel" [(ngModel)]="dipAuth.nom" placeholder="Nom de l'étudiant">
+          <div *ngIf="nom.errors && (nom.invalid || nom.touched)">
+            <small class="text-danger" *ngIf="nom.errors.required && nom.touched">
+              Le nom est obligatoire.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="prenom">Prénom: </label>
+          <input type="text" class="form-control" id="prenom" required [class.is-invalid]="prenom.invalid && prenom.touched"
+            name="prenom" #prenom="ngModel" [(ngModel)]="dipAuth.prenom" placeholder="Prénom de l'étudiant">
+          <div *ngIf="prenom.errors && (prenom.invalid || prenom.touched)">
+            <small class="text-danger" *ngIf="prenom.errors.required && prenom.touched">
+              Le prénom est obligatoire.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-info" [disabled]="!f.form.valid">Sécuriser</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header bg-info">
+      <h5>Resultat de l'authentification</h5>
+    </div>
+    <div class="card-body">
+      <div class="text-center items">
+        <label id="labelAuth">Résultat:</label>
+        <span id="resAuth" [class.bg-success]="resAuth" [class.bg-danger]="!resAuth"> {{resultat}} </span>        
+      </div>
+      <div><hr></div>
+      <div [class.d-none]="!resAuth">
+        <h5 class="text-center"> <b>Information sur le diplôme authentifié</b> </h5>
+        <hr>
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="badge bd1 text-left"> Matricule: </span> 
+                <span class="bd2 badge badge-info"> {{ dipAuth.matricule | uppercase }} </span>
+              </li>
+              <li class="list-group-item">
+                <span class="badge bd1 text-left">Nom Etudiant: </span>
+                <span class="bd2 badge badge-info">{{ dipSecure.nomEtudiant | uppercase }}</span>
+              </li>
+              <li class="list-group-item">
+                <span class="badge bd1 text-left">Prenom Etudiant: </span>
+                <span class="bd2 badge badge-info">{{ dipSecure.prenomEtudiant | uppercase }}</span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <span class="badge bd1 text-left">Filière: </span>
+                <span class="bd2 badge badge-info">{{ dipSecure.filiere | uppercase }}</span>
+              </li>
+              <li class="list-group-item">
+                <span class="badge bd1 text-left">Niveau: </span>
+                <span class="bd2 badge badge-info">{{ dipSecure.niveau?.lib_niveau | uppercase }}</span>
+              </li>
+              <li class="list-group-item">
+                <span class="badge bd1 text-left">Promotion: </span>
+                <span class="bd2 badge badge-info">{{ dipSecure.promotion }}</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>      
+    </div>
+  </div>
+</div>

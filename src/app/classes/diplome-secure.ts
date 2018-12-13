@@ -2,7 +2,7 @@ import { Niveau } from "./niveau";
 import { Observable } from "rxjs";
 
 export class DiplomeSecure {
-    //id_diplome: number = null;
+    id_diplome: number = null;
     empreinte: string = "";
     filiere: string = "";
     promotion: number = 0;
@@ -10,6 +10,6 @@ export class DiplomeSecure {
     nomEtudiant: string = "";
     prenomEtudiant: string = "";
     photoEtudiant: string = "";
-    niveau: string = "";
+    niveau: any = null ;
     _links: any = null;
 }
