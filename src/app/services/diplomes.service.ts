@@ -17,7 +17,7 @@ export class DiplomesService {
   // dépuis le Back-end.
   getAllDiplomes(page: number, size: number) {
     return this.httpReq
-      .get("http://localhost:82/diplomeSecures?page="
+      .get("http://localhost:9999/diplome-service/diplomeSecures?page="
         + page + "&size=" + size + "&sort=idDiplome,desc")
       .pipe
       (
@@ -36,7 +36,7 @@ export class DiplomesService {
   }
 
   secureDiplomes(infos: InfosListDiplomes) {
-    let url = "http://localhost:82/secureListeDiplomes";
+    let url = "http://localhost:9999/diplome-service/secureListeDiplomes";
     return this.httpReq.post(url, infos)
     .pipe(
       map(rep => rep.json())
@@ -44,7 +44,7 @@ export class DiplomesService {
   }
 
   authentifierDiplome(dipAuth: DiplomeAuth) {
-    let url = "http://localhost:82/authentifierDiplome";
+    let url = "http://localhost:9999/diplome-service/authentifierDiplome";
     return this.httpReq.post(url, dipAuth)
       .pipe(
         map(rep => rep.json())

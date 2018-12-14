@@ -1,10 +1,17 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DiplomeSecure } from '../classes/diplome-secure';
 import { DiplomesService } from '../services/diplomes.service';
 import { InfosListDiplomes } from '../classes/infos-list-diplomes';
 import { ActivatedRoute } from '@angular/router';
 import { DiplomeNonSecure } from '../classes/diplome-non-secure';
-import { Observable, timer } from 'rxjs';
+import { timer } from 'rxjs';
+import { ModalComponent } from '../modal/modal.component';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
+//Liste des modals
+const MODALS = {
+  confirmSecure: ModalComponent
+};
 
 @Component({
   selector: 'app-gestion-diplomes',
@@ -31,9 +38,12 @@ export class GestionDiplomesComponent implements OnInit {
   timerSubscription: any;
   postsSubscription: any;
 
+  closeResult: string;
+
   constructor(
     private diplomeService: DiplomesService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private modalService: NgbModal) { }
 
   ngOnInit() {
     //On réccupère le paramètre
@@ -43,6 +53,25 @@ export class GestionDiplomesComponent implements OnInit {
       });
     // Initialisation de la liste des diplômes
     this.doSearch();
+  }
+
+  open(nom: string) {
+    this.modalService.open(MODALS[nom], { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      console.log(this.closeResult);
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      console.log(this.closeResult);
+    });
+  }
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
   }
 
   //Methode permettant de récupérer les niveaux des diplômes

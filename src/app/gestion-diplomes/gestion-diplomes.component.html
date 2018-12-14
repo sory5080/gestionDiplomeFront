@@ -46,8 +46,7 @@
             </small>
           </div>
           <div class="form-group">
-            <button type="button" class="btn btn-primary" [disabled]="!f.form.valid" 
-              (click)="open(confirmSecure)">
+            <button class="btn btn-primary" [disabled]="!f.form.valid" (click)="open('confirmSecure')">
               Sécuriser
             </button>
           </div>
@@ -82,7 +81,7 @@
               <td>{{ dip.promotion }}</td>
               <td>{{ dip.empreinte }}</td>
               <td>
-                <img src="http://localhost:82/codeqrDiplome?nomQR={{dip.codeQR}}" class="rounded" alt="QR Code de {{dip.nomEtudiant}}"
+                <img src="http://localhost:9999/diplome-service/codeqrDiplome?nomQR={{dip.codeQR}}" class="rounded" alt="QR Code de {{dip.nomEtudiant}}"
                   width="100px" height="100px">
               </td>
               <td style="width: 88px;" class="text-center">
@@ -221,7 +220,7 @@
               <td>{{ dip?.promotion }}</td>
               <td>{{ dip?.empreinte }}</td>
               <td>
-                <img src="http://localhost:82/codeqrDiplome?nomQR={{dip?.codeQR}}" class="rounded" alt="QR Code de {{dip?.nomEtudiant}}"
+                <img src="http://localhost:9999/diplome-service/codeqrDiplome?nomQR={{dip?.codeQR}}" class="rounded" alt="QR Code de {{dip?.nomEtudiant}}"
                   width="100px" height="100px">
               </td>
               <td style="width: 88px;" class="text-center">
@@ -246,5 +245,4 @@
       </div>
     </div>
   </ng-template>  
-  <app-modal></app-modal>
 </div>

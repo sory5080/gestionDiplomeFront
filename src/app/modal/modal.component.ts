@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { GestionDiplomesComponent } from '../gestion-diplomes/gestion-diplomes.component';
+import { Component } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-modal',
@@ -8,12 +7,13 @@ import { GestionDiplomesComponent } from '../gestion-diplomes/gestion-diplomes.c
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent {
+  
   closeResult: string;
 
-  constructor(private modalService: NgbModal) { }
+  constructor(public modal: NgbActiveModal) { }
 
-  open(content) {
-    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+  /*open() {
+    this.modalService.open(ModalComponent, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
@@ -28,5 +28,5 @@ export class ModalComponent {
     } else {
       return `with: ${reason}`;
     }
-  }
+  }*/
 }

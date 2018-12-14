@@ -18,7 +18,7 @@ import { EtablissementService } from './services/etablissement.service';
 import { EntrepriseService } from './services/entreprise.service'; 
 import { ModalComponent } from './modal/modal.component';
 import { HttpModule } from '@angular/http';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -43,9 +43,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpModule,
     NgbModule
   ],
+  entryComponents: [
+    ModalComponent
+  ],
   providers: [ 
     EtablissementService,
-    EntrepriseService
+    EntrepriseService,
+    NgbActiveModal
    ],
   bootstrap: [AppComponent]
 })

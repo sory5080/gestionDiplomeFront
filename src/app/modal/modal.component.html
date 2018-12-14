@@ -1,5 +1,5 @@
 
-<ng-template #confirmSecure let-modal>
+<div>
   <div class="modal-header bg-info">
     <h4 class="modal-title" id="modal-basic-title">Confirmation de l'opération de sécurisation</h4>
     <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
@@ -29,13 +29,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button id="btn-non" type="button" class="btn btn-outline-info" (click)="modal.dismiss('NON click')">NON</button>
-    <button id="btn-oui" type="button" class="btn btn-outline-danger" (click)="modal.close('Save click')">OUI</button>
+    <button id="btn-non" class="btn btn-outline-info" (click)="modal.dismiss('NON click')">NON</button>
+    <button id="btn-oui" class="btn btn-outline-danger" (click)="modal.close('Save click')">OUI</button>
   </div>
-</ng-template>
-
-<button class="btn btn-lg btn-outline-primary" (click)="open(confirmSecure)">Launch demo modal</button>
-
-<hr>
-
-<pre>{{closeResult}}</pre>
+</div>
