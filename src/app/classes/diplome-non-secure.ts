@@ -3,4 +3,7 @@ export class DiplomeNonSecure {
     nom: string = "";
     prenom: string = "";
     photo: string = "";
+    niveau: string = "";
+    filiere: string = "";
+    promotion: number = 0;
 }

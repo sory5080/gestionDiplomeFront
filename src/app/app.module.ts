@@ -19,6 +19,7 @@ import { EntrepriseService } from './services/entreprise.service';
 import { ModalComponent } from './modal/modal.component';
 import { HttpModule } from '@angular/http';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalResultatComponent } from './modal-resultat/modal-resultat.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     DashboardEtablissementComponent,
     DashboardEntrepriseComponent,
     routingComponents,
-    ModalComponent
+    ModalComponent,
+    ModalResultatComponent
   ],
   imports: [
     BrowserModule, 
@@ -44,7 +46,8 @@ import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
     NgbModule
   ],
   entryComponents: [
-    ModalComponent
+    ModalComponent,
+    ModalResultatComponent
   ],
   providers: [ 
     EtablissementService,

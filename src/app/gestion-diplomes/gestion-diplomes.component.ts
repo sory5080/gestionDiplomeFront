@@ -7,10 +7,12 @@ import { DiplomeNonSecure } from '../classes/diplome-non-secure';
 import { timer } from 'rxjs';
 import { ModalComponent } from '../modal/modal.component';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ModalResultatComponent } from '../modal-resultat/modal-resultat.component';
 
 //Liste des modals
 const MODALS = {
-  confirmSecure: ModalComponent
+  confirmSecure: ModalComponent,
+  resultatSecure: ModalResultatComponent
 };
 
 @Component({
@@ -55,15 +57,27 @@ export class GestionDiplomesComponent implements OnInit {
     this.doSearch();
   }
 
-  open(nom: string) {
+  openConfirmSecureDiplome(nom: string) {
     this.modalService.open(MODALS[nom], { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
-      console.log(this.closeResult);
+      //console.log(this.closeResult);
+      this.secureListeDiplomes();
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
       console.log(this.closeResult);
     });
   }
+  openConfirmResultatSecure(nom: string) {
+    this.modalService.open(MODALS[nom], { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+      console.log(this.closeResult);
+      //this.secureListeDiplomes();
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      console.log(this.closeResult);
+    });
+  }
+  
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return 'by pressing ESC';
@@ -109,17 +123,18 @@ export class GestionDiplomesComponent implements OnInit {
     this.doSearch();
   }
 
-  secureListeDiplomes() {
+  private secureListeDiplomes() {
     this.postsSubscription = this.diplomeService.secureDiplomes(this.infosListDiplomes)
       .subscribe(data => {
         console.log(data);  
         if(data) {
           this.subscribeToData();
+          this.openConfirmResultatSecure('resultatSecure');
+          console.log("Secure OK !!!");
         }
         else {
-          //$("#myModal").modal();
-        }
-        //this.doSearch();   
+          console.log("Secure PAS OK !!!");
+        } 
       },
         erreur => {
           console.log(erreur);

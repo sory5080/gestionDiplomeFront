@@ -46,7 +46,8 @@
             </small>
           </div>
           <div class="form-group">
-            <button class="btn btn-primary" [disabled]="!f.form.valid" (click)="open('confirmSecure')">
+            <button class="btn btn-primary" [disabled]="!f.form.valid" 
+              (click)="openConfirmSecureDiplome('confirmSecure')">
               Sécuriser
             </button>
           </div>
@@ -112,7 +113,7 @@
           <h5>Sécurisation d'un diplôme</h5>
         </div>
         <div class="card-body">
-          <form #f="ngForm" (ngSubmit)="secureListeDiplome()" novalidate class="row">
+          <form #f="ngForm" (ngSubmit)="secureUnDiplome()" novalidate class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="promotion">Promotion: </label>
